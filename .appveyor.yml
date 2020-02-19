@@ -24,6 +24,16 @@ environment:
 install:
 - cd "%APPVEYOR_BUILD_FOLDER%\CI"
 - powershell ".\appveyor.install.ps1"
+- ps: |
+    Set-Content -Path 'C:\Qt\5.13.2\mingw73_32\bin\qt.conf' -Value '[Paths]
+    Documentation=../../Docs/Qt-5.13.2
+    Examples=../../Examples/Qt-5.13.2
+    Prefix=..'
+
+    Set-Content -Path 'C:\Qt\5.13.2\mingw73_32\bin\qtenv2.bat' -Value '@echo off
+    echo Setting up environment for Qt usage...
+    set PATH=C:\Qt\5.13.2\mingw73_32\bin;C:/Qt/Tools/mingw730_32\bin;%PATH%
+    cd /D C:\Qt\5.13.2\mingw73_32'
 
 build_script:
 - cd "%APPVEYOR_BUILD_FOLDER%\CI"
