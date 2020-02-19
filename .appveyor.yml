@@ -6,7 +6,7 @@ branches:
   - /^Mudlet-.+/   # build release tags (yes, the option also applies to tags)
 init:
 - cmd: mkdir C:\src\
-image: Previous Visual Studio 2019
+image: Visual Studio 2019
 environment:
   signing_password:
     secure: gOKqBtIvfDuGkEeaHGaguMmafynYAG06iVuD6Krem7M=
@@ -23,7 +23,6 @@ environment:
     MINGW_BASE_DIR: C:\Qt\Tools\mingw730_32
 install:
 - cd "%APPVEYOR_BUILD_FOLDER%\CI"
-- powershell ".\appveyor.install.ps1"
 - ps: |
     Set-Content -Path 'C:\Qt\5.13.2\mingw73_32\bin\qt.conf' -Value '[Paths]
     Documentation=../../Docs/Qt-5.13.2
@@ -34,6 +33,7 @@ install:
     echo Setting up environment for Qt usage...
     set PATH=C:\Qt\5.13.2\mingw73_32\bin;C:/Qt/Tools/mingw730_32\bin;%PATH%
     cd /D C:\Qt\5.13.2\mingw73_32'
+- powershell ".\appveyor.install.ps1"
 
 build_script:
 - cd "%APPVEYOR_BUILD_FOLDER%\CI"
