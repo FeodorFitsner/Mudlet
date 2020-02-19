@@ -31,6 +31,8 @@ install:
     jwt=
     u='
     
+    Set-Content -Path 'C:\Qt\Licenses\LICENSE' -Value 'LICENSE'
+    
     Set-Content -Path 'C:\Qt\5.13.2\mingw73_32\bin\qt.conf' -Value '[Paths]
     Documentation=../../Docs/Qt-5.13.2
     Examples=../../Examples/Qt-5.13.2
