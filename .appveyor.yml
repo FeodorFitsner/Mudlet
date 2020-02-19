@@ -24,14 +24,23 @@ environment:
 install:
 - cd "%APPVEYOR_BUILD_FOLDER%\CI"
 - ps: |
-    New-Item -Type Directory -Path "$env:AppData\Qt" -Force
-    
-    Set-Content -Path "$env:AppData\Qt\qtaccount.ini" -Value '[QtAccount]
-    email=
-    jwt=
-    u='
-    
-    Set-Content -Path 'C:\Qt\Licenses\LICENSE' -Value 'LICENSE'
+
+    Set-Content -Path 'C:\Qt\5.13.2\mingw73_32\mkspecs\qconfig.pri -Value 'QT_ARCH = i386
+    QT_BUILDABI = i386-little_endian-ilp32
+    QT.global.enabled_features = shared debug_and_release build_all c++11 c++14 c++1z c99 c11 thread future concurrent
+    QT.global.disabled_features = cross_compile framework rpath appstore-compliant c++2a pkg-config force_asserts separate_debug_info simulator_and_device static
+    QT_CONFIG += shared debug_and_release debug release build_all c++11 c++14 c++1z concurrent dbus no-pkg-config stl
+    CONFIG += shared release no_plugin_manifest
+    QT_VERSION = 5.13.2
+    QT_MAJOR_VERSION = 5
+    QT_MINOR_VERSION = 13
+    QT_PATCH_VERSION = 2
+    QT_GCC_MAJOR_VERSION = 7
+    QT_GCC_MINOR_VERSION = 3
+    QT_GCC_PATCH_VERSION = 0
+    QT_EDITION = OpenSource
+    QT_LICHECK =
+    QT_RELEASE_DATE = 2019-10-28'
     
     Set-Content -Path 'C:\Qt\5.13.2\mingw73_32\bin\qt.conf' -Value '[Paths]
     Documentation=../../Docs/Qt-5.13.2
