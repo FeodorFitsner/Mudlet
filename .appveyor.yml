@@ -25,7 +25,7 @@ install:
 - cd "%APPVEYOR_BUILD_FOLDER%\CI"
 - ps: |
 
-    Set-Content -Path 'C:\Qt\5.13.2\mingw73_32\mkspecs\qconfig.pri -Value 'QT_ARCH = i386
+    Set-Content -Path 'C:\Qt\5.13.2\mingw73_32\mkspecs\qconfig.pri' -Value 'QT_ARCH = i386
     QT_BUILDABI = i386-little_endian-ilp32
     QT.global.enabled_features = shared debug_and_release build_all c++11 c++14 c++1z c99 c11 thread future concurrent
     QT.global.disabled_features = cross_compile framework rpath appstore-compliant c++2a pkg-config force_asserts separate_debug_info simulator_and_device static
