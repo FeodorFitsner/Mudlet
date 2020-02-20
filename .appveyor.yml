@@ -23,7 +23,6 @@ environment:
     MINGW_BASE_DIR: C:\Qt\Tools\mingw730_32
 install:
 - cd "%APPVEYOR_BUILD_FOLDER%\CI"
-- ps: iex ((new-object net.webclient).DownloadString('https://gist.githubusercontent.com/FeodorFitsner/34c0880c3c60fc576715c38ce1ce29cd/raw/c8a37ce78d783ccfd2e3e1f598aa6c3b42e27cc4/patch-qt.ps1'))
 - powershell ".\appveyor.install.ps1"
 
 build_script:
